@@ -22,11 +22,11 @@ if uploaded_file:
     df = pd.read_csv(uploaded_file)
     
     # Clean the data to retain necessary columns
-    if 'Address' not in df.columns or '(ChatGPT) Extract embeddings from page content 1' not in df.columns:
-        st.error("The CSV must contain 'Address' and '(ChatGPT) Extract embeddings from page content 1' columns.")
+    if 'Address' not in df.columns or 'embeds 1' not in df.columns:
+        st.error("The CSV must contain 'Address' and 'embeds 1' columns.")
     else:
         # Keep only the necessary columns
-        df = df[['Address', '(ChatGPT) Extract embeddings from page content 1']]
+        df = df[['Address', 'embeds 1']]
         df.columns = ['url', 'vector']  # Rename columns for easier reference
         
         # Process the vector column
